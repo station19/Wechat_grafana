@@ -25,9 +25,17 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
     CorpSecret="X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA"  
     AgentId=1000003
 ```
-同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
+###同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
+添加要发送到微信用户的微信名,(企业微信通讯录查看名称 如  dashu)
+```
+编辑 vim/Wechat_grafana/Alarm_people.txt
+dashu
+zhangshan
+gebilaowang
+```
 ### 5、启动服务
-    python WechatServer.py 8080 &
+
+        python WechatServer.py 8080 >/dev/null 2>&1 & 
 
 ps: 如果用 supervisorctl管理,请在/etc/supervisord/webchat_grafana.conf中添加：
 ```
@@ -62,6 +70,9 @@ Name: webchat（自定义）
 Type：webhook  
 设置【Webhook settings】url：http://127.0.0.1:8080/api/model/send_sms/ （注意：webhok的ip地址、端口应该与启动服务的ip、端口一一对应，转发地址：/api/model/send_sms/ 与WechatServer.py代码文件呢中【设置web.py的接口】对应    
 然后在对应的监控页面中设置告警规则，其中【Alert】-【Notifications】设选中添加的Name为：webchat的告警通道
+Username 和password 不填, Http Method 选择 POST
+
+
 
 # 向群聊会话中推送消息 
 ### 8、首先创建一个群
@@ -85,6 +96,6 @@ Type：webhook
     SendMsg.sendMessageChat(title, description, ruleUrl, imageUrl)
 
 ### 10、重新启动服务
-    python WechatServer.py 8080 &  
+    python WechatServer.py 8080 >/dev/null 2>&1 & 
 参考方法6、7步骤进行实际测试，用户daixuan会在【告警群】收到对应的告警通知
 
