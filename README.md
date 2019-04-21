@@ -25,7 +25,7 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
     CorpSecret="X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA"  
     AgentId=1000005
 ```
-###同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
+同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
 添加要发送到微信用户的微信名,(企业微信通讯录查看名称 如  dashu)
 ```
 编辑 vim/Wechat_grafana/Alarm_people.txt
@@ -33,7 +33,7 @@ dashu
 zhangshan
 gebilaowang
 ```
-### 修改 SendMsg.py 的  "agentid": 1000005, 为自己的应用ID,和上面的 AgentId 对应
+##### 修改 SendMsg.py 的  "agentid": 1000005, 为自己的应用ID,和上面的 AgentId 对应
         "agentid": 1000005,
 
 ### 5、启动服务
