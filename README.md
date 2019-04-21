@@ -12,7 +12,7 @@
 然后上传应用的logo，设置应用名称，选择可见应用部门范围（注意，添加的应用应该属于企业而不是单独某个部门，否则创建会话群聊失败，错误码：60011)  
 创建好后点击应用，获取:  
 ```
-AgentId:1000003 #企业ID是1000001，创建子部门顺序加1  
+AgentId:1000005 #企业ID是1000001，创建子部门顺序加1  
 Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA  
 ```
 ### 3、安装web.py 
@@ -23,7 +23,7 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
 ```
     CorpID="ww02946fb9034b5649"  
     CorpSecret="X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA"  
-    AgentId=1000003
+    AgentId=1000005
 ```
 ###同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
 添加要发送到微信用户的微信名,(企业微信通讯录查看名称 如  dashu)
@@ -33,6 +33,9 @@ dashu
 zhangshan
 gebilaowang
 ```
+### 修改 SendMsg.py 的  "agentid": 1000005, 为自己的应用ID,和上面的 AgentId 对应
+        "agentid": 1000005,
+
 ### 5、启动服务
 
         python WechatServer.py 8080 >/dev/null 2>&1 & 
