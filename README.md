@@ -100,5 +100,5 @@ Username 和password 不填, Http Method 选择 POST
 
 ### 10、重新启动服务
     python WechatServer.py 8080 >/dev/null 2>&1 & 
-参考方法6、7步骤进行实际测试，用户daixuan会在【告警群】收到对应的告警通知
+参考方法6、7步骤进行实际测试，用户会在【告警群】收到对应的告警通知
 
