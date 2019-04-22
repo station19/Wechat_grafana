@@ -92,6 +92,14 @@ Username 和password 不填, Http Method 选择 POST
     "chatid" : "CHATID"
 }
 ```
+```
+  参数	    是否必须	说明
+access_token	是	    调用接口凭证
+name	        否	    群聊名，最多50个utf8字符，超过将截断
+owner	        否	    指定群主的id。如果不指定，系统会随机从userlist中选一人作为群主
+userlist	    是	    群成员id列表。至少2人，至多500人
+chatid	        否	    群聊的唯一标志，不能与已有的群重复；字符串类型，最长32个字符。只允许字符0-9及字母a-zA-Z。如果不填，系统会随机生成群id
+```
 
 ### 9、修改代码
 取消WechatServer.py文件中该行行首的注释符号: 
